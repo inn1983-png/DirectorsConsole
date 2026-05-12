@@ -4,6 +4,7 @@ import { StoryboardUI } from './StoryboardUI';
 import { GalleryUI } from './gallery';
 import OAuthCallback from '@/components/OAuthCallback';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { useChineseUi } from './i18n/useChineseUi';
 import './App.css';
 
 // Check if this is an OAuth callback
@@ -20,12 +21,13 @@ interface Tab {
 }
 
 const TABS: Tab[] = [
-  { id: 'cinema', label: 'Cinema Prompt Engineering', icon: '🎬' },
-  { id: 'storyboard', label: 'Storyboard', icon: '📋' },
-  { id: 'gallery', label: 'Gallery', icon: '🖼️' },
+  { id: 'cinema', label: '电影提示词工程', icon: '🎬' },
+  { id: 'storyboard', label: '分镜画布', icon: '📋' },
+  { id: 'gallery', label: '素材库', icon: '🖼️' },
 ];
 
 function DirectorsConsole() {
+  useChineseUi();
   const [activeTab, setActiveTab] = useState<TabId>('cinema');
 
   // Read project settings from Storyboard's saved state for Gallery.
@@ -77,7 +79,7 @@ function DirectorsConsole() {
       <nav className="directors-console__nav">
         <div className="directors-console__logo">
           <span className="logo-icon">🎬</span>
-          <span className="logo-text">Director's Console</span>
+          <span className="logo-text">导演控制台</span>
         </div>
         
         <div className="directors-console__tabs">
